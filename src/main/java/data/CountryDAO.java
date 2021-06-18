@@ -48,7 +48,6 @@ public class CountryDAO {
     }
 
     public void updateCountry(Country country, int id) throws SQLException {
-        Statement statement = connection.createStatement();
         PreparedStatement preparedStatement =
                 connection.prepareStatement("Update Country SET name= ?, continentID =?, id = ? WHERE id = ?;");
         preparedStatement.setString(1, country.getName());

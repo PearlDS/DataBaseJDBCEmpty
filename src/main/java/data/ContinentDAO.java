@@ -3,10 +3,7 @@ package data;
 import model.Continent;
 import model.Country;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +49,28 @@ public class ContinentDAO {
         while (resultSet.next())
             continent = new Continent(resultSet.getInt("Id"),resultSet.getString("name"));
         return continent;
+    }
+
+    public void addContinent(Continent continent) throws SQLException {
+        PreparedStatement preparedStatement =
+                connection.prepareStatement("INSERT INTO Continent (name) VALUES (?);");
+        preparedStatement.setString(1, continent.getName());
+        preparedStatement.execute();
+    }
+
+    public void updateContinent(Continent continent, int id) throws SQLException {
+        PreparedStatement preparedStatement =
+                connection.prepareStatement("Update Continent SET name= ?, id = ? WHERE id = ?;");
+        preparedStatement.setString(1, continent.getName());
+        preparedStatement.setInt(2, continent.getId());
+        preparedStatement.setInt(3, id);
+        preparedStatement.execute();
+
+    }
+    public void deleteContinent(Continent continent) throws SQLException {
+        Statement statement = connection.createStatement();
+        String delete= "Delete FROM Continent WHERE id = "+continent.getId()+";";
+        statement.executeUpdate(delete);
     }
 
 
