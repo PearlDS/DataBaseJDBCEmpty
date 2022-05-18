@@ -63,9 +63,9 @@ public class MainDBClass {
 
             switch (choiceTwo){
                 case 1:countryService.showAllCountries();break;//see All Countries
-                case 2:countryService.showCountryByIdWithoutCheck();break;//see One Country By Id
-                case 3:countryService.addCountryWithoutCheck();break;//add One new Country
-                case 4:countryService.updateCountryWithoutCheck();break;//edit One Country
+                case 2:countryService.showCountryById();break;//see One Country By Id
+                case 3:countryService.addCountry();break;//add One new Country
+                case 4:countryService.updateCountry();break;//edit One Country
                 case 5:countryService.deleteACountry();break;//delete One Country
             }
             System.out.println("We did a country thing!");

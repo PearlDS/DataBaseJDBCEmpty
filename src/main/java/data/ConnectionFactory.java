@@ -8,8 +8,8 @@ public class ConnectionFactory {
 
     public static Connection getConnection() throws SQLException {
 
-                return DriverManager.getConnection("jdbc:mysql://188.44.72.209:33062/pearl",
-                        "pearl", "pearl2021");
+                return DriverManager.getConnection("jdbc:mysql://db.intecbrussel.be:33100/student00",
+                        "student00", "student6890");
     }
 
 }
